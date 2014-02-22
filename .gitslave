@@ -8,3 +8,4 @@
 "http://llvm.org/git/libcxx.git" "sources/libcxx"
 "git://sourceware.org/git/binutils-gdb.git" "sources/binutils"
 "https://github.com/sushihangover/llvm-avr.git" "sources/llvm-avr"
+"git://git.qemu-project.org/qemu.git" "sources/qemu"
