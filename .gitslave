@@ -2,3 +2,4 @@
 "http://llvm.org/git/clang.git" "sources/llvm/tools/clang"
 "http://llvm.org/git/compiler-rt.git" "sources/llvm/projects/compiler-rt"
 "http://llvm.org/git/test-suite.git" "sources/llvm/projects/test-suite"
+"http://llvm.org/git/clang-tools-extra.git" "sources/llvm/tools/clang/tools/clang-tools-extra"
