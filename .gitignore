@@ -13,3 +13,4 @@
 *.a
 /sources/llvm/
 /sources/polly/
+/sources/libcxx/
