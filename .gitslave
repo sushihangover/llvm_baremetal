@@ -1,1 +1,2 @@
 "http://llvm.org/git/llvm.git" "sources/llvm"
+"http://llvm.org/git/clang.git" "sources/llvm/tools/clang"
