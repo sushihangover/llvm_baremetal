@@ -4,3 +4,4 @@
 "http://llvm.org/git/test-suite.git" "sources/llvm/projects/test-suite"
 "http://llvm.org/git/clang-tools-extra.git" "sources/llvm/tools/clang/tools/clang-tools-extra"
 "http://llvm.org/git/lld.git" "sources/llvm/tools/lld"
+"http://llvm.org/git/polly.git" "sources/polly"

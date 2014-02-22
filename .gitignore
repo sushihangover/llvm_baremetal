@@ -12,3 +12,4 @@
 *.la
 *.a
 /sources/llvm/
+/sources/polly/
