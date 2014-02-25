@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="postbuild" name="test">
+	<property name="project.name" value="SHCortexM3"/>
+	<property name="project.path" value="C:\CooCox\CoIDE\workspace\SHCortexM3"/>
+	<property name="output.name" value="SHCortexM3"/>
+	<property name="output.path" value="C:\CooCox\CoIDE\workspace\SHCortexM3\shcortexm3"/>
+	<property name="project.debug" value="${output.path}/Debug"/>
+	<property name="project.obj" value="${output.path}/Debug/obj"/>
+	<property name="project.bin" value="${output.path}/Debug/bin"/>
+	<property name="target.name" value="SHCortexM3"/>
+	<property name="chip.name" value="M3"/>
+
+	<!-- associate current path to the link file path-->
+	<dirname file="$${basedir}" property="linkdir"/>
+
+	<target depends="compile" name="postbuild">
+	   <exec executable="${gcc.home}\arm-none-eabi-objcopy.exe">
+	      <arg value="-O"/>
+	      <arg value="binary"/>
+	      <arg value="${project.bin}\${output.name}.elf"/>
+	      <arg value="${project.bin}\${output.name}.bin"/>
+	   </exec>
+	   <exec executable="${gcc.home}\arm-none-eabi-objcopy.exe">
+		  <arg value="-O"/>
+		  <arg value="ihex"/>
+		  <arg value="${project.bin}\${output.name}.elf"/>
+		  <arg value="${project.bin}\${output.name}.hex"/>
+	   </exec>
+	   <exec dir="${project.bin}" executable="${gcc.home}\arm-none-eabi-size.exe">
+		   <arg value="${output.name}.elf"/>
+	   </exec>
+	</target>
+
+	<taskdef resource="cpptasks.tasks"/>
+	<target name="compile">
+		<mkdir dir="${project.bin}"/>
+		<mkdir dir="${project.obj}"/>
+		<cc debug="true" incremental="0" objdir="${project.obj}" outfile="${project.bin}/${output.name}.elf" outtype="executable" subsystem="console">
+			<!-- compile all the c source file in the project -->
+			<fileset casesensitive="false" file="C:/CooCox/CoIDE/workspace/SHCortexM3/syscalls/syscalls.c"/>
+      <fileset casesensitive="false" file="C:/CooCox/CoIDE/workspace/SHCortexM3/cmsisboot/startup/startup_Cortex_M3.c"/>
+      <fileset casesensitive="false" file="C:/CooCox/CoIDE/workspace/SHCortexM3/semihosting/sh_cmd.s"/>
+      <fileset casesensitive="false" file="C:/CooCox/CoIDE/workspace/SHCortexM3/stdio/printf.c"/>
+      <fileset casesensitive="false" file="C:/CooCox/CoIDE/workspace/SHCortexM3/semihosting/semihosting.c"/>
+      <fileset casesensitive="false" file="C:/CooCox/CoIDE/workspace/SHCortexM3/main.c"/>
+      <project outfile="${output.path}/${output.name}.elf" overwrite="true" type="xcode"/>
+			<defineset>
+			<define name="M3"/>
+      </defineset>
+      <includepath path="C:/CooCox/CoIDE/workspace/SHCortexM3/cmsis"/>
+      <includepath path="C:/CooCox/CoIDE/workspace"/>
+      <includepath path="C:/CooCox/CoIDE/workspace/SHCortexM3"/>
+      <includepath path="C:/CooCox/CoIDE/workspace/SHCortexM3/semihosting"/>
+      <compilerarg value="-mcpu=cortex-m3"/>
+      <compilerarg value="-mthumb"/>
+      <compilerarg value="-Wall"/>
+      <compilerarg value="-ffunction-sections"/>
+      <compilerarg value="-g"/>
+      <compilerarg value="-O0"/>
+      <linkerarg value="-mcpu=cortex-m3"/>
+      <linkerarg value="-mthumb"/>
+      <linkerarg value="-g"/>
+      <linkerarg value="-nostartfiles"/>
+      <linkerarg value="-Map=SHCortexM3.map"/>
+      <linkerarg value="-O0"/>
+      <linkerarg value="--gc-sections"/>
+      <linkerarg value="-L${linkdir}"/>
+      <linkerarg value="-T${linkdir}/arm-gcc-link.ld"/>
+		</cc>
+	</target>
+
+	<target name="clean">
+		<delete dir="${project.bin}"/>
+		<delete dir="${project.obj}"/>
+		<delete dir="${project.debug}"/>
+		<delete dir="${output.path}/${output.name}.elf.xcodeproj"/>
+	</target>
+
+	<target depends="clean" name="rebuild">
+		<antcall target="postbuild"/>
+	</target>
+
+</project>

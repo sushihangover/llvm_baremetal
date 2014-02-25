@@ -6,6 +6,13 @@ void print_uart0(const char *s) {
  s++; /* Next char */
  }
 }
+
+/* Function to avoid linker complaints if applying "-funwind-tables */
+/*
+void __aeabi_unwind_cpp_pr0(void)
+{
+};
+*/
  
 void c_entry() {
  print_uart0("Hello world!\n");

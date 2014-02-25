@@ -16,6 +16,7 @@
 /sources/libcxx/
 /sources/binutils/
 /sources/llvm-avr/
+/sources/qemu/
 
 # OS generated files #
 ######################
@@ -30,5 +31,6 @@ Thumbs.db
 # All build and install files
 /build/
 /install/
+/examples/arm/HelloWorld_Simple/bin
+/examples/arm/HelloWorld_Simple/obj
 
-/sources/qemu/

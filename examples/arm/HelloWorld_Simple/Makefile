@@ -9,13 +9,13 @@ LD = arm-none-eabi-ld
 SIZE = $(TARGET_TRIPLE)-size
 QEMU = qemu-system-arm
 QEMU_OPTS = -M versatilepb -m 128M -nographic -kernel 
-OPTS = -O0
+OPTS = -O0 -fno-exceptions -fno-asynchronous-unwind-tables -fdata-sections -ffunction-sections
 DEBUG = 
 TARGET_TRIPLE = arm-none-eabi
 CORE = arm926ej-s
 FLOAT_TYPE = soft
 CFLAGS = $(OPTS) -target $(TARGET_TRIPLE) -mcpu=$(CORE) -mfloat-abi=$(FLOAT_TYPE)
-LFLAGS = -L$(OBJ_DIR) $(DEBUG) -T
+LFLAGS = -L$(OBJ_DIR) --gc-sections --print-gc-sections $(DEBUG) -T
 OBJ_DIR = obj
 BIN_DIR = bin
 
@@ -25,10 +25,11 @@ OBJECTS_ALL := $(OBJECTS_S) $(OBJECTS_C)
 
 LINK = $(patsubst %.o,bin/%.axf,$(LINK_TARGET)) 
 
-foobar : $(OBJECTS_ALL) $(LINK)
+all : $(OBJECTS_ALL) $(LINK) 
 
 $(LINK) : bin
 	$(LD) $(LFLAGS) $(LDFILE) $(OBJECTS_ALL) -o $(BIN_DIR)/$(LINK_TARGET)
+	$(SIZE) $(BIN_DIR)/$(LINK_TARGET)
 
 bin :
 	@mkdir -p $@
@@ -44,10 +45,10 @@ obj/%.o : src/%.c
 obj/%.o : src/%.s
 	$(CC) $(CFLAGS) -o $@ -c $<
 
-size : foobar
+size : all
 	$(SIZE) $(BIN_DIR)/$(LINK_TARGET)
 
-test : foobar
+test : all
 	$(QEMU) $(QEMU_OPTS) $(BIN_DIR)/$(LINK_TARGET)
 
 clean :
