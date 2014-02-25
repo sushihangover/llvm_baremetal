@@ -9,3 +9,4 @@
 "git://sourceware.org/git/binutils-gdb.git" "sources/binutils"
 "https://github.com/sushihangover/llvm-avr.git" "sources/llvm-avr"
 "git://git.qemu-project.org/qemu.git" "sources/qemu"
+"git://github.com/martine/ninja.git" "sources/ninja"
