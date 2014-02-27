@@ -40,16 +40,19 @@ obj :
 	@mkdir -p $@
 
 obj/%.o : src/%.c
-	$(CC) $(CFLAGS) -o $@ -c $<
+	$(CC) $(DEBUG) $(CFLAGS) -o $@ -c $<
 
 obj/%.o : src/%.s
-	$(CC) $(CFLAGS) -o $@ -c $<
+	$(CC) $(DEBUG) $(CFLAGS) -o $@ -c $<
 
 size : all
 	$(SIZE) $(BIN_DIR)/$(LINK_TARGET)
 
 test : all
 	$(QEMU) $(QEMU_OPTS) $(BIN_DIR)/$(LINK_TARGET)
+
+debug : all
+	$(QEMU) -s -S $(QEMU_OPTS) $(BIN_DIR)/$(LINK_TARGET)
 
 clean :
 	-@$(RM) -f $(OBJ_DIR)/*.o
