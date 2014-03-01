@@ -12,3 +12,4 @@
 "git://github.com/martine/ninja.git" "sources/ninja"
 "git://sourceware.org/git/binutils-gdb.git" "sources/gdb"
 "http://llvm.org/git/dragonegg" "sources/dragonegg"
+"git://git.linaro.org/toolchain/newlib.git" "sources/newlib-linaro"
