@@ -7,7 +7,8 @@ mkdir -p $TOOLCHAIN_INSTALL\/$BUILD_TRIPLE
 	--target=$BUILD_TRIPLE \
 	--enable-gold=no \
 	--enable-ld=yes \
-	--enable-interwork=no \
+	--enable-interwork=yes \
+	--enable-multilib \
 	--enable-multibibi-no \
 	--enable-nlsi=no \
 	--enable-libssp=no \
