@@ -8,9 +8,10 @@ mkdir -p $TOOLCHAIN_INSTALL\/$BUILD_TRIPLE
 	--target=$BUILD_TRIPLE \
 	--prefix=$TOOLCHAIN_INSTALL\/$BUILD_TRIPLE \
 	--enable-interwork \
-	--enable-multilibi \
+	--enable-multilib \
 	--enable-languages="c,c++" \
         --with-newlib \
-	--with-headers=../../../sources/newlib-1.18.0/newlib/libc/include 
+	--with-float=soft \
+	--with-headers=../../../sources/newlib-2.0.0/newlib/libc/include 
 popd
 

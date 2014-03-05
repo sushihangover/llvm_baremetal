@@ -6,13 +6,12 @@ mkdir -p $TOOLCHAIN_INSTALL\/$BUILD_TRIPLE
 	--program-prefix=$BUILD_TRIPLE-\
 	--target=$BUILD_TRIPLE \
 	--enable-gold=no \
-	--enable-ld=yes \
-	--enable-interwork=yes \
+	--enable-ld \
+	--enable-interworks \
 	--enable-multilib \
-	--enable-multibibi-no \
 	--enable-nlsi=no \
 	--enable-libssp=no \
-	--enable-lto=yes \
+	--enable-lto \
 	--enable-werror=no 
 popd
 
