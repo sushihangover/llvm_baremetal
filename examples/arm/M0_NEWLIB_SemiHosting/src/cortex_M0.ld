@@ -29,21 +29,21 @@ SECTIONS {
         *(.text*)
         *(.rodata)
         *(.rodata*)
-        _end_text = .;
     } >FLASH
 
-        .ARM.extab : 
-        {
-                *(.ARM.extab* .gnu.linkonce.armextab.*)
-        } > FLASH
+    .ARM.extab : 
+    {
+        . = ALIGN(4);
+        *(.ARM.extab* .gnu.linkonce.armextab.*)
+    } > FLASH
 
+    .ARM.exidx :
+    {
+        . = ALIGN(4);
         __exidx_start = .;
-        .ARM.exidx :
-        {
-                *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-        } > FLASH
+        *(.ARM.exidx* .gnu.linkonce.armexidx.*)
         __exidx_end = .;
-
+    } > FLASH
     _end_text = .;
 
     .data : AT (_end_text)

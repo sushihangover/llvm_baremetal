@@ -7,12 +7,13 @@ int main ()
   extern char _heap_end; /* Defined by the linker */
   int i,n;
   char * buffer;
+  char * fail = "Malloc failed\n\0";
 
   i = 43;
   buffer = (char*) malloc (i);
   if (buffer==NULL)
   {
-     puts ("Malloc failed\n");
+     puts (fail);
      exit (1);
   }
 
@@ -24,14 +25,13 @@ int main ()
   buffer[i]='\0';
   printf ("Random string: %s\n",buffer);
 
-  i = 32;
+  i = 16;
   do 
   {
      buffer = realloc(buffer, i);
      if (buffer == NULL) 
      {
-        puts("Out of memory!\n");
-        exit (1);
+        puts(fail);
      } else {
         printf("%d bytes @ address 0x%X (Low=0x%X:Hi=0x%X)\n",
            i, 
