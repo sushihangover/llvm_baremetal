@@ -120,6 +120,9 @@ qemu:
 qgdb: all
 	$(QEMU) -s -S $(QEMU_OPTS) $(BIN_DIR)/$(LINK_TARGET)
 
+qkill:
+        @killall -SIGABRT $(QEMU)
+
 clean:
 	-@$(RM) -f $(OBJ_DIR)/*.o
 	-@$(RM) -f $(BIN_DIR)/$(LINK_TARGET)

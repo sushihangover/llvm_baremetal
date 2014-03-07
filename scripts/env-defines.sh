@@ -13,5 +13,3 @@ export BUILD_TRIPLE=arm-none-eabi
 export CMSIS=$TOOLCHAIN_INSTALL/$BUILD_TRIPLE/CMSIS
 export NEWLIB=$TOOLCHAIN_INSTALL/arm-none-eabi
 
-export PATH=`pwd`/install/arm-none-eabi/bin:$PATH
-
