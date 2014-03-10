@@ -40,8 +40,9 @@ Thumbs.db
 /sources/newlib-linaro/
 /sources/openocd/
 /sources/musl/
-
+/sources/gcc/
 
 examples/arm/M3_CMSIS_DSP/bin/
 examples/arm/SemiHostingInLineAssembly/bin/
 
+/sources/gitslave/
