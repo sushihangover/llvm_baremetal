@@ -6,11 +6,11 @@ mkdir -p $TOOLCHAIN_INSTALL\/$BUILD_TRIPLE
 	--target-list=arm-softmmu \
 	--disable-werror \
 	--disable-strip \
-	--disable-sdl \
+	--enable-sdl \
 	--enable-cocoa \
 	--disable-bsd-user \
-	--disable-guest-agent
-
+	--disable-guest-agent \
+	--enable-debug
 
 popd
 

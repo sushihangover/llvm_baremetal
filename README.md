@@ -17,6 +17,7 @@ Currently targeting arm-none-eabi and building on OS-X:
 * gcc (arm-none-eabi-g*)
 * binutils (arm-none-eabi-*)
 * gdb (arm-none-eabi-gdb)
+* qemu (qemu-system-arm)
 * ninja
 * opendocd
 * ARM CMSIS
