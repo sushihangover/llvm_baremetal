@@ -46,3 +46,4 @@ examples/arm/M3_CMSIS_DSP/bin/
 examples/arm/SemiHostingInLineAssembly/bin/
 
 /sources/gitslave/
+/sources/libcxx/

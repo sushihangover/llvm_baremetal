@@ -16,3 +16,4 @@
 "git://git.musl-libc.org/musl" "sources/musl"
 "git://gcc.gnu.org/git/gcc.git" "sources/gcc"
 "git://git.code.sf.net/p/gitslave/code" "sources/gitslave"
+"http://llvm.org/git/libcxx.git" "sources/libcxx"
