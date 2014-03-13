@@ -17,3 +17,4 @@
 "git://git.code.sf.net/p/gitslave/code" "sources/gitslave"
 "http://llvm.org/git/libcxx.git" "sources/libcxx"
 "git://git.musl-libc.org/musl" "sources/musl"
+"git://git.code.sf.net/p/openocd/code" "sources/openocd"

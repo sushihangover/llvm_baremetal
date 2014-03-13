@@ -47,3 +47,4 @@ examples/arm/SemiHostingInLineAssembly/bin/
 /sources/gitslave/
 /sources/libcxx/
 /sources/musl/
+/sources/openocd/
