@@ -47,3 +47,4 @@ examples/arm/SemiHostingInLineAssembly/bin/
 /sources/musl/
 /sources/openocd/
 /sources/dragonegg/
+/sources/newlib-linaro/
