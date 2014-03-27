@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include "printf_svc.h"
+
+int main (void)
+{
+	printf("BKPT Hello World\n");
+	printf("How small is this?\n");
+	
+	svcExit(); // QEMU system exit
+	
+	while (1) { };
+}

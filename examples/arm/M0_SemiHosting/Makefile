@@ -8,7 +8,7 @@ CORE = cortex-m0
 QCORE = cortex-m0plus
 FLOAT_TYPE = soft
 ARMARCH = armv6-m
-CMSIS_MATH_CORE = -DARM_MATH_CM3
+CMSIS_MATH_CORE = -DARM_MATH_CM0
 DSP_MATH = arm_cortexM0l_math
 
 CC = clang
@@ -73,11 +73,13 @@ LINK_AXF := $(addprefix $(BIN_DIR)/,$(notdir $(LINK_TARGET)))
 
 all: debug 
 
+release: DEFINES=QDEBUG
 release: COPTS=-Os
 release: LOPTS=-O4
 release: CDEBUG=
 release: $(LINK_AXF)
 
+debug: DEFINES=QDEBUG
 debug: COPTS=-O0
 debug: CDEBUG=-g
 debug: $(LINK_AXF)
@@ -89,7 +91,7 @@ bin:
 
 bin/%.axf: $(OBJECTS_ALL)
 	$(LD) $(LOPTS) $(LFLAGS) -o $@
-	@$(SIZE) $@
+	$(SIZE) $@
 
 $(OBJECTS_ALL) : | obj
 
@@ -97,10 +99,10 @@ obj:
 	@mkdir -p $@
 
 obj/%.o: src/%.c
-	$(CC) $(COPTS) $(CDEBUG) $(CFLAGS) -o $@ -c $<
+	$(CC) $(COPTS) -D$(DEFINES) $(CDEBUG) $(CFLAGS) -o $@ -c $<
 
 obj/%.o: src/%.s
-	$(CC) $(COPTS) $(CDEBUG) $(CFLAGS) -o $@ -c $<
+	$(CC) $(COPTS) -D$(DEFINES) $(CDEBUG) $(CFLAGS) -o $@ -c $<
 
 size: 
 	$(SIZE) $(BIN_DIR)/$(LINK_TARGET)
@@ -125,8 +127,10 @@ qkill:
 
 clean:
 	-@$(RM) -f $(OBJ_DIR)/*.o
+	-@$(RM) -rf $(OBJ_DIR)
 	-@$(RM) -f $(BIN_DIR)/$(LINK_TARGET)
 	-@$(RM) -f $(BIN_DIR)/$(LINK_TARGET).map
+	-@$(RM) -rf $(BIN_DIR)
 
 env:
 	@echo $(TOOLCHAIN_INSTALL)

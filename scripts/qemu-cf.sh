@@ -4,6 +4,7 @@ mkdir -p $TOOLCHAIN_INSTALL\/$BUILD_TRIPLE
 ../../../sources/qemu/configure \
 	--prefix=$TOOLCHAIN_INSTALL\/$BUILD_TRIPLE \
 	--target-list=arm-softmmu \
+	--enable-trace-backend=simple \
 	--disable-werror \
 	--disable-strip \
 	--enable-sdl \
