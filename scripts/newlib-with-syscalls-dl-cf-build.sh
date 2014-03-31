@@ -1,7 +1,6 @@
 
 mkdir -p build/newlib-syscalls
 pushd build/newlib-syscalls
-#    --disable-newlib-supplied-syscalls \
 ../../sources/newlib-2.0.0/configure \
 	--prefix=$TOOLCHAIN_INSTALL\/$BUILD_TRIPLE\/newlib-syscalls \
 	--target=$BUILD_TRIPLE \

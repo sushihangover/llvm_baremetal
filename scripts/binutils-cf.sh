@@ -5,6 +5,8 @@ mkdir -p $TOOLCHAIN_INSTALL\/$BUILD_TRIPLE
 	--prefix=$TOOLCHAIN_INSTALL\/$BUILD_TRIPLE \
 	--program-prefix=$BUILD_TRIPLE-\
 	--target=$BUILD_TRIPLE \
+	--enable-static \
+	--disable-shared \
 	--enable-gold=no \
 	--enable-ld \
 	--enable-interworks \
