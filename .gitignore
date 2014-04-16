@@ -48,3 +48,4 @@ examples/arm/SemiHostingInLineAssembly/bin/
 /sources/openocd/
 /sources/dragonegg/
 /sources/newlib-linaro/
+sources/cloog_src/*
