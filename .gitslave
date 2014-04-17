@@ -18,3 +18,4 @@
 "http://llvm.org/git/dragonegg" "sources/dragonegg"
 "git://git.linaro.org/toolchain/newlib.git" "sources/newlib-linaro"
 "http://llvm.org/git/polly.git" "sources/llvm/tools/polly"
+"git://git.qemu-project.org/qemu.git" "sources/qemu"
