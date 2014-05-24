@@ -4,7 +4,7 @@ mkdir -p build/llvm
 export TOOLCHAIN_DIR=`pwd`
 export TOOLCHAIN_INSTALL=$TOOLCHAIN_DIR/install
 export LLVM_TARGETS="ARM;AVR;X86"
-export LLVM_TARGETS="ARM;ARM64;AArch64"
+export LLVM_TARGETS="ARM;AArch64"
 export CMSIS_VERSION="CMSIS-SP-00300-r3p1-00rel0"
 export NEWLIB_VERSION=
 # export BUILD_TRIPLE=avr
